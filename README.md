@@ -1,2 +1,2 @@
 # zbot
-A discord bot for our server
+A discord bot written with discord.py
