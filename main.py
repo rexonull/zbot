@@ -12,6 +12,10 @@ client = commands.Bot(command_prefix = "-")
 async def on_ready():
     print("Logged in as {0.user}".format(client))
 
+async def on_member_join(member):
+    msg = "@" + member + "joined the server!"
+    print(msg)
+
 # sends a random quote
 @client.command()
 async def quote(ctx):
