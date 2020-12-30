@@ -24,5 +24,12 @@ async def calc(ctx, num1 = 'x', op = 'x', num2 = 'x'):
     ans = functions.calculate(num1, op, num2)
     await ctx.send(ans)
 
+@client.command()
+async def clear(ctx, amount=1):
+    await ctx.channel.purge(limit=amount+1)
+    await ctx.send(str(amount) + " messages removed")
+    sleep(2)
+    await ctx.channel.purge(limit=1)
+
 keep_alive()
 client.run(os.getenv('TOKEN'))
