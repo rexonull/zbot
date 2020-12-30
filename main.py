@@ -4,6 +4,8 @@ import os
 
 from keep_alive import keep_alive
 from dotenv import load_dotenv
+from time import sleep
+
 import functions
 
 # initialize the bot
@@ -34,4 +36,4 @@ async def clear(ctx, amount=1):
 
 keep_alive()
 load_dotenv('.env')
-client.run(os.getenv('TOKEN'))
+client.run(os.getenv('DISCORD_TOKEN'))
