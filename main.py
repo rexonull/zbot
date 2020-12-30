@@ -3,6 +3,7 @@ from discord.ext import commands
 import os
 
 from keep_alive import keep_alive
+from dotenv import load_env
 import functions
 
 # initialize the bot
@@ -32,4 +33,5 @@ async def clear(ctx, amount=1):
     await ctx.channel.purge(limit=1)
 
 keep_alive()
+load_env('.env')
 client.run(os.getenv('TOKEN'))
