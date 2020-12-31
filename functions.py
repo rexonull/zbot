@@ -1,5 +1,6 @@
 import requests
 import json
+import random
 
 def get_quote():
     response = requests.get("https://zenquotes.io/api/random")
@@ -34,3 +35,9 @@ def calculate(n1: str, operator: str, n2: str):
         return result
     except:
         return "Invalid operation"
+
+def get_random_cat():
+    url = "https://cataas.com"
+    response = requests.get(f"{url}/api/cats")
+    data = response.json()
+    return f"{url}/cat/{random.choice(data)['id']}"

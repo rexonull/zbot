@@ -35,6 +35,18 @@ async def clear(ctx, amount=1):
     sleep(2)
     await ctx.channel.purge(limit=1)
 
+@client.command()
+async def cat(ctx):
+    cat_url = functions.get_random_cat()
+    await ctx.send(cat_url)
+
+@client.command()
+async def catsay(ctx, *,text="Hello!"):
+    cat_url = functions.get_random_cat()
+    text_split = text.split()
+    text_joint = "%20".join(text_split)
+    await ctx.send(f"{cat_url}/says/{text_joint}?color=purple")
+
 keep_alive()
 load_dotenv('.env')
 client.run(os.getenv('DISCORD_TOKEN'))
