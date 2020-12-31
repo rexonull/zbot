@@ -28,6 +28,7 @@ async def calc(ctx, num1 = 'x', op = 'x', num2 = 'x'):
     await ctx.send(ans)
 
 @client.command()
+@commands.has_permissions(manage_messages=True)
 async def clear(ctx, amount=1):
     await ctx.channel.purge(limit=amount+1)
     await ctx.send(str(amount) + " messages removed")
